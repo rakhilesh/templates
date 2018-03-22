@@ -31,8 +31,12 @@ easypackages::libraries(packages)
 
 #=================== Data import======================================
 
-
+dat <- #read.csv#
+  
 #Split into train and test or train/test/validation
+dat$id <- 1:nrow(dat)
+train <- dat %>% dplyr::sample_frac(.75)
+test  <- dplyr::anti_join(dat, train, by = 'id')
 
 #=================== EDA =============================================
 
@@ -41,6 +45,7 @@ easypackages::libraries(packages)
 
 #=================== BiVariate Analysis ==============================
 # Correlation - Use corrplot for visualizations
+# Compare the highest correlated variables vs target variables
 
 #=================== Multi variate Analysis ==========================
 
