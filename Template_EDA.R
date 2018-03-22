@@ -3,7 +3,7 @@
 rm(list=ls())                      #Cleaning the environment as R works on RAM
 library(checkpoint)                #Required when using MRO version
 checkpointArchives()               #View list of check point on disk
-checkpoint("2018-03-01")           #Set new check point if required before engagement start "YYYY-MM-DD"
+checkpoint("2018-03-01")           #Set new check point if required before project start "YYYY-MM-DD"
 #checkpointRemove("2018-03-01")
 
 #=====================Project Template================================
@@ -30,6 +30,7 @@ if (length(setdiff(packages, rownames(installed.packages()))) > 0) {
 easypackages::libraries(packages)
 
 #=================== Data import======================================
+
 
 #Split into train and test or train/test/validation
 
