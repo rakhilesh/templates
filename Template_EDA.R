@@ -35,17 +35,24 @@ dat <- #read.csv#
   
 #Split into train and test or train/test/validation
 dat$id <- 1:nrow(dat)
-train <- dat %>% dplyr::sample_frac(.75)
+train <- dat %>% dplyr::sample_frac(.70)
 test  <- dplyr::anti_join(dat, train, by = 'id')
 
 #=================== EDA =============================================
 
 #=================== Univariate Analysis =============================
 # Look at the target variable
+ggplot(data = dat, aes('ColName')) + 
+  geom_histogram(fill="blue", binwidth = 10000) +
+  scale_x_continuous(breaks = seq(0,800000,by = 100000), labels =comma)
+
+# Assess missing values; Assign logical values in place of missing values and remove outliers
+# Change categorical variable to factors with names 
 
 #=================== BiVariate Analysis ==============================
 # Correlation - Use corrplot for visualizations
 # Compare the highest correlated variables vs target variables
+
 
 #=================== Multi variate Analysis ==========================
 
